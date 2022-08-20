@@ -14,6 +14,21 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         title: const Text('Login'),
       ),
+      body: Column(
+        children: const [
+          TextField(
+            decoration: InputDecoration(
+                labelText: 'Email'
+            ),
+          ),
+          TextField(
+            obscureText: true,
+            decoration: InputDecoration(
+              labelText: 'Password'
+            ),
+          )
+        ],
+      ),
     );
   }
 }
