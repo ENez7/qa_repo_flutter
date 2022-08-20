@@ -19,17 +19,15 @@ void main() {
           http.Response('{"userId": 1, "id": 2, "title": "mock"}', 200));
 
       expect(await fetchAlbum(mockitoClient), isA<Album>());
-
-      test('HTTP EXCEPTION', () {
-        final mockitoClient = MockClient();
-
-        when(mockitoClient
-            .get(Uri.parse('https://jsonplaceholder.typicode.com/albums/1')))
-            .thenAnswer((_) async => http.Response('Not Found', 404));
-
-        expect(fetchAlbum(mockitoClient), throwsException);
-      });
     });
+    test('HTTP EXCEPTION', () {
+      final mockitoClient = MockClient();
 
+      when(mockitoClient
+          .get(Uri.parse('https://jsonplaceholder.typicode.com/albums/1')))
+          .thenAnswer((_) async => http.Response('Not Found', 404));
+
+      expect(fetchAlbum(mockitoClient), throwsException);
+    });
   });
 }
